@@ -2,7 +2,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from .routers import post,user,auth,vote
-from . import models
 from .database import engine
 from .config import Settings
 
@@ -29,7 +28,7 @@ app.include_router(vote.router)
 
 @app.get('/')
 def hello_world():
-    return 'Hello World'
+    return 'Hello World!!!!'
 
 
 
