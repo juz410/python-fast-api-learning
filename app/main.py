@@ -28,7 +28,7 @@ app.include_router(vote.router)
 
 @app.get('/')
 def hello_world():
-    return {"message": "Hello World Succesfully from CICD pipeline"}
+    return {"message": "Hello Andrew"}
 
 
 
