@@ -38,15 +38,29 @@ def hello_world():
 
 
 
-@app.post("/testing_api")
-def testing_api(post: Post):
+@app.post("/text_file_post")
+def text_file_post(post: Post):
     print(post)
     file = open("test.txt","a")
     file.write(post.title + "|" + post.content+"\n")
+    file.close()
     return post
 
 
-
+@app.get("/text_file_get")
+def text_file_get():
+    file = open("test.txt")
+    post = []
+    for i in file:
+        post_content =  (i.strip()).split('|')
+        post.append(
+            {
+                "title" : post_content[0],
+                "content" : post_content[1]
+            }
+        )
+    file.close()
+    return {"post: " : post}
 
 
 
